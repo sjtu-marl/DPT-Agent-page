@@ -1,119 +1,185 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="DESCRIPTION META TAG">
+    <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+    <meta property="og:description"
+      content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+    <meta property="og:url" content="URL OF THE WEBSITE" />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/image/your_banner_image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
+    <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+    <meta name="twitter:description"
+      content="TWITTER BANNER DESCRIPTION META TAG">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image"
+      content="static/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Academic Project Page</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet">
 
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
 
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <style>
+      /* 確保表格在各列上有統一的寬度 */
+      .tab-content .column {
+        flex: 1;
+      }
+      
+      /* 調整表格樣式，確保完整顯示內容 */
+      .tab-content table {
+        width: 100%;
+        table-layout: auto; /* 讓表格根據內容自動調整 */
+      }
+      
+      /* 移除可能導致內容被截斷的屬性 */
+      .tab-content th, .tab-content td {
+        padding: 0.5em 0.4em; /* 縮小內邊距以節省空間 */
+        font-size: 0.9em;     /* 稍微縮小字體 */
+        word-wrap: normal;    /* 防止文本換行 */
+        white-space: nowrap;  /* 保持文本不換行 */
+      }
+      
+      /* 在小屏幕上允許水平滾動 */
+      @media screen and (max-width: 1023px) {
+        .table-container {
+          overflow-x: auto;
+          max-width: 100%;
+        }
+      }
 
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+      /* 新增輪播圖片居中樣式 */
+      .results-carousel .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      
+      .results-carousel .item img {
+        max-height: 60vh;  /* 控制圖片最大高度為視窗高度的 60% */
+        object-fit: contain;
+        margin: 20px auto;  /* 上下間距 20px，左右自動居中 */
+      }
+      
+      /* 為標題和副標題添加適當的間距 */
+      .results-carousel .item h1.title {
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+      
+      .results-carousel .item h2.subtitle {
+        margin-top: 0;
+        padding: 0 15px;  /* 左右添加一些內邊距 */
+      }
+    </style>
+  </head>
+  <body>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-</head>
-<body>
-
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Leveraging Dual Process Theory in Language Agent Framework for Real-time Simultaneous Human-AI Collaboration</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://shaozhang.info" target="_blank">Shao Zhang</a><sup>1*</sup>,</span>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Leveraging Dual Process
+                Theory in Language Agent Framework for Real-time Simultaneous
+                Human-AI Collaboration</h1>
+              <div class="is-size-5 publication-authors">
+                <!-- Paper authors -->
                 <span class="author-block">
-                  <a href="https://xihuai18.github.io" target="_blank">Xihuai Wang</a><sup>1*</sup>,</span>
-                  <span class="author-block">
-                    Wenhao Zhang<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    Chaoran Li<sup></sup>,
-                  </span>
-                  <span class="author-block">
-                    Junru Song<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    Tingyu Li<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    Lin Qiu<sup>2</sup>,
-                  </span>
-                  <span class="author-block">
-                    Xuezhi Cao<sup>2</sup>,
-                  </span>
-                  <span class="author-block">
-                    Xunliang Cai<sup>2</sup>,
-                  </span>
-                  <span class="author-block">
-                    Wen Yao<sup>3</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://wnzhang.net" target="_blank">Weinan Zhang</a><sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    Xinbing Wang<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://yingwen.io" target="_blank">Ying Wen</a><sup>1#</sup>
-                  </span>
-                  </div>
+                  <a href="https://shaozhang.info" target="_blank">Shao
+                    Zhang</a><sup>1*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://xihuai18.github.io" target="_blank">Xihuai
+                    Wang</a><sup>1*</sup>,</span>
+                <span class="author-block">
+                  Wenhao Zhang<sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  Chaoran Li<sup></sup>,
+                </span>
+                <span class="author-block">
+                  Junru Song<sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  Tingyu Li<sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  Lin Qiu<sup>2</sup>,
+                </span>
+                <span class="author-block">
+                  Xuezhi Cao<sup>2</sup>,
+                </span>
+                <span class="author-block">
+                  Xunliang Cai<sup>2</sup>,
+                </span>
+                <span class="author-block">
+                  Wen Yao<sup>3</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://wnzhang.net" target="_blank">Weinan
+                    Zhang</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  Xinbing Wang<sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://yingwen.io" target="_blank">Ying
+                    Wen</a><sup>1#</sup>
+                </span>
+              </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup> Shanghai Jiao Tong University <sup>2</sup>, Meituan <sup>3</sup>, Intelligent Game and Decision Laboratory<br></span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution <sup>#</sup>Corresponding Author</small></span>
-                  </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup> Shanghai Jiao Tong
+                  University, <sup>2</sup> Meituan, <sup>3</sup> Intelligent
+                  Game and Decision Laboratory<br></span>
+                <span class="eql-cntrb"><small><br><sup>*</sup>Equal
+                    Contribution <sup>#</sup>Corresponding Author</small></span>
+              </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/2502.11882.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- Arxiv PDF link -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/pdf/2502.11882.pdf"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
 
-                    <!-- Supplementary PDF link -->
-                    <!-- <span class="link-block">
+                  <!-- Supplementary PDF link -->
+                  <!-- <span class="link-block">
                       <a href="" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
@@ -125,163 +191,790 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/sjtu-marl/DPT-Agent" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2502.11882" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
+                    <a href="https://github.com/sjtu-marl/DPT-Agent"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+
+                  <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2502.11882" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
-        <!-- Your video here -->
-        <!-- <source src="static/videos/banner_video.mp4"
+    <!-- Teaser video-->
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <!-- <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
+          <!-- Your video here -->
+          <!-- <source src="static/videos/banner_video.mp4"
         type="video/mp4"> -->
-      <!-- </video> -->
-       <img src="static/images/intro.png" id="tree" autoplay controls muted loop height="70%">
-      <h2 class="subtitle has-text-centered">
-        How DPT-Agent Collaborates with Human Simultaneously in Real-time.
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Agents built on large language models (LLMs) have excelled in turn-by-turn human-AI collaboration but struggle with simultaneous tasks requiring real-time interaction. Latency issues and the challenge of inferring variable human strategies hinder their ability to make autonomous decisions without explicit instructions.
-            Through experiments with current independent <i>System 1</i> and <i>System 2</i> methods, we validate the necessity of using Dual Process Theory (DPT) in real-time tasks.
-            We propose <br>DPT-Agent, a novel language agent framework that integrates <i>System 1</i> and <i>System 2</i> for efficient real-time simultaneous human-AI collaboration.
-            DPT-Agent's <i>System 1</i> uses a Finite-state Machine (FSM) and code-as-policy for fast, intuitive, and controllable decision-making. 
-            DPT-Agent's <i>System 2</i> integrates Theory of Mind (ToM) and asynchronous reflection to infer human intentions and perform reasoning-based autonomous decisions.
-            We demonstrate the effectiveness of  DPT-Agent through further experiments with rule-based agents and human collaborators, showing significant improvements over mainstream LLM-based frameworks. 
-            To the best of our knowledge,  DPT-Agent is the first language agent framework that achieves successful real-time simultaneous human-AI collaboration autonomously. 
-          </p>
+          <!-- </video> -->
+          <img src="static/images/intro.png" id="tree" autoplay controls muted
+            loop height="70%">
+          <h2 class="subtitle has-text-centered">
+            How DPT-Agent Collaborates with Human Simultaneously in Real-time.
+          </h2>
         </div>
       </div>
+    </section>
+    <!-- End teaser video -->
+
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Agents built on large language models (LLMs) have excelled in
+                turn-by-turn human-AI collaboration but struggle with
+                simultaneous tasks requiring real-time interaction. Latency
+                issues and the challenge of inferring variable human strategies
+                hinder their ability to make autonomous decisions without
+                explicit instructions.
+                Through experiments with current independent <i>System 1</i> and
+                <i>System 2</i> methods, we validate the necessity of using Dual
+                Process Theory (DPT) in real-time tasks.
+                We propose <br>DPT-Agent, a novel language agent framework that
+                integrates <i>System 1</i> and <i>System 2</i> for efficient
+                real-time simultaneous human-AI collaboration.
+                DPT-Agent's <i>System 1</i> uses a Finite-state Machine (FSM)
+                and code-as-policy for fast, intuitive, and controllable
+                decision-making.
+                DPT-Agent's <i>System 2</i> integrates Theory of Mind (ToM) and
+                asynchronous reflection to infer human intentions and perform
+                reasoning-based autonomous decisions.
+                We demonstrate the effectiveness of DPT-Agent through further
+                experiments with rule-based agents and human collaborators,
+                showing significant improvements over mainstream LLM-based
+                frameworks.
+                To the best of our knowledge, DPT-Agent is the first language
+                agent framework that achieves successful real-time simultaneous
+                human-AI collaboration autonomously.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End paper abstract -->
+
+    <!-- Image carousel -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/framework.png" alt="MY ALT TEXT" />
+              <h1 class="title is-4 has-text-weight-bold">DPT-Agent Framework</h1>
+              <h2 class="subtitle">
+                In System 2, the historical states from the history buffer periodically trigger
+the ToM module to infer human behaviors. The reflection module then analyzes the belief output from the ToM module, along with game score feedback and other historical state information, to summarize its own behaviors and
+generate guidelines. Within System 1, the code-as-policy generator utilizes the current state, belief and guidelines to
+generate code-as-policy when necessary, enabling control over the FSM. When no specific input is provided, the
+FSM continues operating autonomously, generating macro actions to ensure the agent maintains continuous action
+output, thereby guaranteeing real-time responsiveness in simultaneous collaboration.
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/exp1.png" alt="MY ALT TEXT" />
+              <h1 class="title is-4 has-text-weight-bold">LLM as Independent System 1 and System 2</h1>
+              <h2 class="subtitle">
+                As independent System 1,
+                models with fewer than 20B parameters excel in
+                latency but often have near-zero score efficiency,
+                indicating fast responses but ineffective actions.
+                Since missed orders lead to score deductions, some
+                high-score-efficiency models with high latency still
+                score below zero. The models that can balance
+                capability in generating scoring actions with low
+                latency perform better. When the reasoning mod-
+                els use long CoT as the System 2, despite their
+                stronger reasoning capabilities, their performance
+                presents even lower score efficiency and overall
+                scores compared to many smaller models function-
+                ing as System 1. Additionally, all agents perform
+                worse than the FSM agent.
+                These results show that LLM-based indepen-
+                dent System 1 and System 2 agents struggle with
+                low-latency models lacking capability and high-
+                capability models suffering from excessive latency.
+                This phenomenon highlights the need for a frame-
+                work to integrate System 1 and System 2, balancing capability and latency in real-time tasks.
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/exp2.png" alt="MY ALT TEXT" />
+              <h1 class="title is-4 has-text-weight-bold">Capability in Simultaneous Collaboration - Experiments with Rule-based Agent</h1>
+              <h2 class="subtitle">
+                Under ReAct and Reflexion framework, the score efficiency of most models has significantly improved compared with when they functioned as independent System 1 (Figure 2). However, the score of many models has declined with an increase in latency due to more complex System 2 reasoning. Low-latency models, like Qwen2.5-14b, still struggle with capability issues, failing to achieve higher final scores despite good score efficiency. Further comparison of the performance of DPT-Agent reveals that inference models with high latency and larger models get a significant improvement. DPT-Agent can help these high latency models convert the high score efficiency and reasoning capability to scores, which demonstrates the effectiveness of DPT-Agent in real-time tasks.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End image carousel -->
+
+    <!-- 實驗結果區塊 -->
+    <section class="section hero">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Experiment Results</h2>
+
+            <!-- 標籤頁 -->
+            <div class="tabs is-centered is-boxed" id="exp-tabs">
+              <ul>
+                <li class="is-active" data-target="exp1-tab"><a>Single-Agent Setting </a></li>
+                <li data-target="exp2-tab"><a> Multi-Agent Setting</a></li>
+                <li data-target="human-exp-tab"><a>Collaboration with
+                    Human</a></li>
+              </ul>
+            </div>
+
+            <!-- 標籤頁內容 -->
+            <div class="tab-content has-text-centered">
+              <!-- Exp 1 標籤頁 -->
+              <div id="exp1-tab" class="tab-pane is-active">
+                <div class="columns is-centered is-desktop">
+                  <!-- 第一個表格 -->
+                  <div class="column">
+                    <h4 class="title is-5">ReAct</h4>
+                    <div class="table-container">
+                      <table
+                        class="table is-striped is-hoverable is-fullwidth has-text-centered">
+                        <thead>
+                          <tr>
+                            <th class="has-text-centered">Models</th>
+                            <th class="has-text-centered">Score</th>
+                            <th class="has-text-centered">Score Efficiency</th>
+                            <th class="has-text-centered">Latency</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>GPT-4o</td>
+                            <td> 21.00(7.01) </td>
+                            <td>3.08(0.30)</td>
+                            <td> 7.10(0.29) </td>
+                          </tr>                          
+                          <tr>
+                            <td>GPT-4o-mini</td>
+                            <td> -28.50(6.23) </td>
+                            <td>0.60(0.28)</td>
+                            <td> 3.06(0.07) </td>
+                          </tr>
+                          <tr>
+                            <td>o3-mini-low</td>
+                            <td>5.50(5.86) </td>
+                            <td> 2.51(0.25) </td>
+                            <td>8.64(0.27) </td>
+                          </tr>
+                          <tr>
+                            <td>DeepSeek-V2.5-236b</td>
+                            <td>-21.50(3.56)</td>
+                            <td> 1.72(0.24) </td>
+                            <td> 6.45(0.18)</td>
+                          </tr>
+                          <tr>
+                            <td>DeepSeek-R1-70b</td>
+                            <td>-17.00(4.32)</td>
+                            <td> 1.48(0.17) </td>
+                            <td> 7.79(0.20)</td>
+                          </tr>
+                          <tr>
+                            <td>DeepSeek-R1-32b </td> <td> -15.50(4.51)</td><td>
+                              1.49(0.18)</td> <td> 5.77(0.18) </td>
+                          </tr>
+                          <tr>
+                            <td>DeepSeek-R1-14b </td> <td> -7.00(4.94) </td>
+                            <td> 2.67(0.19) </td> <td>2.91(0.03) </td>
+                          </tr>
+                          <tr>
+                            <td>Llama3.3-70b</td> <td> 20.00(4.21) </td> <td>
+                              2.86(0.16)</td> <td> 5.44(0.05)</td>
+                          </tr>
+                          <tr>
+                            <td>Mistral-nemo-12b </td><td>-10.00(3.31) </td>
+                            <td> 2.40(0.13) </td><td> 1.10(0.03)</td>
+                          </tr>
+                          <tr>
+                            <td>Mistral-small-24b </td> <td>59.50(5.04)
+                            </td><td>4.63(0.20)</td> <td>2.69(0.02) </td>
+                          </tr>
+                          <tr>
+                            <td>Mixtral-8x22b </td> <td> -5.00(5.23) <td>
+                                1.73(0.22) <td>5.56(0.10) </td>
+                              </tr>
+                              <tr>
+                                <td>Qwen2.5-14b <td> -5.00(5.31)</td><td>
+                                    1.98(0.21) </td> <td> 1.55(0.03)</td>
+                                </tr>
+                                <tr>
+                                  <td>Qwen2.5-32b</td>
+                                  <td>10.00(0.50)</td><td>2.94(0.02) </td>
+                                  <td> 1.93(0.04)</td>
+                                </tr>
+                                <tr>
+                                  <td>Qwen2.5-72b </td> <td>16.50(3.22)
+                                  </td><td> 2.71(0.09) </td> <td>4.60(0.09)
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        <!-- 第二個表格 -->
+                        <div class="column">
+                          <h4 class="title is-5">Reflexion</h4>
+                          <div class="table-container">
+                            <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+                              <thead>
+                                <tr>
+                                  <th class="has-text-centered">Models</th>
+                                  <th class="has-text-centered">Score</th>
+                                  <th class="has-text-centered">Score Efficiency</th>
+                                  <th class="has-text-centered">Latency</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>GPT-4o </td>
+                                  <td>-1.50(3.78) </td>
+                                  <td> 2.14(0.17) </td>
+                                  <td> 7.49(0.27) </td>
+                                </tr>
+                                <tr>
+                                  <td>GPT-4o-mini </td>
+                                  <td> -40.00(2.17) </td>
+                                  <td> 0.00(0.14) </td>
+                                  <td> 3.11(0.08)</td>
+                                </tr>
+                                <tr>
+                                  <td>o3-mini-low </td>
+                                  <td>-16.50(7.12) </td>
+                                  <td> 1.78(0.26) </td>
+                                  <td> 8.86(0.23)</td>
+                                </tr>
+                                <tr>
+                                  <td>DeepSeek-V2.5 </td>
+                                  <td>-25.56(2.91) </td>
+                                  <td> 1.24(0.18)</td>
+                                  <td>7.64(0.16)</td>
+                                </tr>
+                                <tr>
+                                  <td>DeepSeek-R1-70b </td>
+                                  <td>-20.00(4.79) </td>
+                                  <td> 1.44(0.19)</td>
+                                  <td> 7.78(0.17)</td>
+                                </tr>
+                                <tr>
+                                  <td>DeepSeek-R1-32b </td>
+                                  <td> -37.50(4.77) </td>
+                                  <td>0.90(0.21)</td>
+                                  <td>7.39(0.11) </td>
+                                </tr>
+                                <tr>
+                                  <td>DeepSeek-R1-14b </td>
+                                  <td> -10.50(4.12) </td>
+                                  <td> 1.93(0.22)</td>
+                                  <td> 4.01(0.11)</td>
+                                </tr>
+                                <tr>
+                                  <td>Llama3.3-70b </td>
+                                  <td>20.00(4.47) </td>
+                                  <td> 3.25(0.19)</td>
+                                  <td> 5.20(0.06)</td>
+                                </tr>
+                                <tr>
+                                  <td>Mistral-nemo-12b </td>
+                                  <td> -40.00(0.00) </td>
+                                  <td>0.00(0.00)</td>
+                                  <td>1.60(0.02) </td>
+                                </tr>
+                                <tr>
+                                  <td>Mistral-small-24b </td>
+                                  <td>-5.00(3.63) </td>
+                                  <td> 1.43(0.03)</td>
+                                  <td> 3.11(0.05)</td>
+                                </tr>
+                                <tr>
+                                  <td>Mixtral-8x22b </td>
+                                  <td> 0.50(4.33)</td>
+                                  <td> 2.44(0.20)</td>
+                                  <td> 5.58(0.23)</td>
+                                </tr>
+                                <tr>
+                                  <td>Qwen2.5-14b </td>
+                                  <td>-4.00(4.45) </td>
+                                  <td> 2.44(0.24) </td>
+                                  <td> 1.87(0.05)</td>
+                                </tr>
+                                <tr>
+                                  <td>Qwen2.5-32b </td>
+                                  <td> -40.00(0.00) </td>
+                                  <td> 0.00(0.00) </td>
+                                  <td> 2.93(0.05)</td>
+                                </tr>
+                                <tr>
+                                  <td>Qwen2.5-72b </td>
+                                  <td> -25.00(2.76) </td>
+                                  <td> 1.47(0.09) </td>
+                                  <td> 4.66(0.05)</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        <!-- 第三個表格 -->
+                        <div class="column">
+                          <h4 class="title is-5">DPT-Agent w/o ToM</h4>
+                          <div class="table-container">
+                            <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+                              <thead>
+                                <tr>
+                                  <th class="has-text-centered">Models</th>
+                                  <th class="has-text-centered">Score</th>
+                                  <th class="has-text-centered">Score
+                                    Efficiency</th>
+                                  <th class="has-text-centered">Latency</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr><td>GPT-4o</td>        <td> 20.50(5.41) </td>   <td> 3.05(0.24) </td>  <td> 5.08(0.15) </td></tr>
+                                  <tr><td>GPT-4o-mini</td>   <td> 21.00(4.47) </td>   <td> 3.50(0.23) </td>  <td> 2.13(0.01) </td></tr>
+                                  <tr><td>o3-mini-low</td>      <td> 37.50(4.81) </td>    <td> 3.68(0.19) </td>  <td> 7.03(0.28) </td></tr>
+                                  <tr><td>DeepSeek-V2.5</td>  <td>31.50(3.40) </td>  <td> 3.40(0.14) </td>  <td> 4.73(0.11) </td></tr>
+                                  <tr><td>DeepSeek-R1-70b</td>  <td> 60.00(4.35) </td> <td> 4.19(0.15)</td>  <td> 9.09(0.26)  </td></tr>
+                                  <tr><td>DeepSeek-R1-32b</td> <td> 39.50(7.68) </td>    <td> 3.35(0.27) </td><td> 6.58(0.25)  </td></tr>
+                                  <tr><td>DeepSeek-R1-14b</td><td> 23.00(5.42) </td>  <td> 23.00(5.42) </td><td> 3.87(0.07) </td></tr> 
+                                  <tr><td>Llama3.3-70b</td>   <td> -10.00(6.46)</td>  <td> 1.82(0.34) </td>  <td> 2.28(0.10)  </td></tr>
+                                  <tr><td>Mistral-nemo-12b</td>  <td> 30.00(5.20) </td>  <td> 3.49(0.21)</td>  <td> 1.31(0.03)  </td></tr>
+                                  <tr><td>Mistral-small-24b</td> <td> -1.50(3.63) </td> <td> 2.05(0.17) </td><td> 3.61(0.31)  </td></tr>
+                                  <tr><td>Mixtral-8x22b</td>   <td> 0.00(15.00) </td>   <td> 2.70(0.20) </td><td> 4.21(0.17) </td></tr>
+                                  <tr><td>Qwen2.5-14b</td>    <td> 1.50(4.11) </td>   <td> 2.68(0.22) </td>  <td> 1.18(0.02) </td></tr>
+                                  <tr><td>Qwen2.5-32b</td>   <td> 1.00(3.83) </td>     <td> 2.26(0.13) </td> <td> 1.65(0.03)  </td></tr>
+                                  <tr><td>Qwen2.5-72b</td>    <td> 11.00(4.88) </td>    <td> 2.66(0.21) </td><td> 3.01(0.12)   </td></tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                                              <!-- Exp 2 標籤頁 -->
+                                              <div id="exp2-tab" class="tab-pane is-hidden">
+                                                <!-- 將說明文字放入與表格相同的列結構中 -->
+                                                <div class="columns is-centered is-desktop">
+                                                  <div class="column">
+                                                    <div class="content">
+                                                      <p class="has-text-justified">
+                                                        DPT-Agent achieved the best performance across the majority of models, especially on the widely recognized general-purpose
+                                                        SOTA models like GPT-4o. This phenomenon aligns with the conclusions from the experiments
+                                                        in single-agent settings, where larger models can overcome the latency limitations and achieve better
+                                                        performance with the help of DPT-Agent. Such performance improvements are more noticeable in
+                                                        the reasoning model series of GPT o3-mini and DeepSeek-R1. DPT-Agent framework can help reasoning models, which require long periods of
+                                                        thinking, overcome the latency and effectively transition from thinking to action. Additionally, when
+                                                        facing rule-based agents that can only perform a single task, DPT-Agent can maintain a high contribution rate. For some models like Llama3.3-70b, DPT-Agent w/o ToM outperforms the complete DPT-Agent, which may be closely related to the model's ToM capabilities.
+                                                      </p>
+                                                    </div>
+                                                  </div>
+                                                </div>
+  <div class="columns is-centered is-desktop">
+  
+    <!-- 第一個表格 -->
+    <div class="column">
+      <h4 class="title is-5">Score</h4>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th class="has-text-centered">Models</th>
+              <th class="has-text-centered">ReAct</th>
+              <th class="has-text-centered">Reflexion</th>
+              <th class="has-text-centered">DPT-Agent w/o ToM</th>
+              <th class="has-text-centered">DPT-Agent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Overall     </td><td> 13.37(6.08)	</td><td>15.22(6.42)</td><td>43.67(6.64)	</td><td>46.57(6.89) 	 </td></tr>
+            <tr><td>o3-mini-high    </td><td> -43.00(0.93)	</td><td>-42.00(0.85)</td><td>65.83(5.66)</td><td>	55.17(4.84) </td></tr>			
+            <tr><td>o3-mini-medium    </td><td>-10.00(6.94)	</td><td>4.83(7.63)	</td><td>56.50(7.07)</td><td>	60.00(6.07) </td></tr>
+            <tr><td>o3-mini-low    </td><td> 7.00(7.491)	</td><td>33.50(7.06)	</td><td>44.83(9.74)</td><td>	51.33(8.67)</td></tr>
+            <tr><td>GPT-4o      </td><td> 35.67(9.62)</td><td>39.17(8.43)</td><td>18.67(8.50)</td><td>39.50(8.63) </td></tr>
+            <tr><td>GPT-4o-mini   </td><td> -6.58(5.37)</td><td>5.58(7.53)</td><td>50.00(5.27)</td><td>52.92(6.34)  </td></tr>
+            <tr><td>Qwen-Max   </td><td>30.50(6.58)	</td><td>21.17(6.23)</td><td>	51.50(9.27)	</td><td>53.83(7.33)   </td></tr>
+            <tr><td>Claude 3.5 Haiku     </td><td> 29.50(5.63)	</td><td>24.83(6.58)	</td><td>43.17(8.01)	</td><td>41.50(7.69) </td></tr>
+            <tr><td>DeepSeek-R1-671b     </td><td>20.67(5.47)	</td><td>21.00(6.83)</td><td>56.67(5.13)	</td><td>74.33(5.33) </td></tr>
+            <tr><td>DeepSeek-R1-70b     </td><td>33.83(6.77)</td><td>-2.67(5.98)</td><td>51.00(6.08)</td><td>61.50(6.40) </td></tr>
+            <tr><td>DeepSeek-R1-32b     </td><td>37.33(8.51)</td><td>23.33(7.46)</td><td>45.50(6.39)</td><td>38.83(8.51) </td></tr>
+            <tr><td>DeepSeek-R1-14b     </td><td>-8.50(3.88)</td><td>12.00(8.51)</td><td>40.33(7.73)</td><td>43.17(8.54) </td></tr>
+            <tr><td>DeepSeek-V3   </td><td>29.17(8.24)</td><td>	33.33(7.76)</td><td>	70.33(5.28)	</td><td>61.83(5.86) </td></tr>
+            <tr><td>DeepSeek-V2.5   </td><td>	-6.00(5.23)	</td><td>12.33(4.83)</td><td> 31.50(6.58)</td><td>	23.50(8.44)</td></tr>
+            <tr><td>Qwen2.5-72b      </td><td> 18.03(4.69)</td><td>48.67(5.68)</td><td>18.83(5.51)</td><td>32.08(5.17)  </td></tr>
+            <tr><td>Llama3.3-70b      </td><td> 27.97(5.68)</td><td>-15.58(5.28)</td><td>30.75(3.86)</td><td>28.08(6.68)    </td></tr>
+            <tr><td>Mixtral-8x22b    </td><td> 20.17(6.30)	</td><td>24.67(6.07)</td><td>	24.00(6.10)	</td><td> 26.83(5.79)  </td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
 
+    <!-- 第二個表格 -->
+    <div class="column">
+      <h4 class="title is-5">Agent Contribution Rate</h4>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th class="has-text-centered">Models</th>
+              <th class="has-text-centered">ReAct</th>
+              <th class="has-text-centered">Reflexion</th>
+              <th class="has-text-centered">DPT-Agent w/o ToM</th>
+              <th class="has-text-centered">DPT-Agent</th>
+            </tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Overall     	</td><td>0.52(0.03)</td><td>	0.52(0.03)</td><td>0.68(0.03)</td><td>	0.68(0.03)</td></tr>	
+            <tr><td>o3-mini-high    </td><td>0.00(0.00)</td><td>	0.00(0.00)</td><td>	0.68(0.02)</td><td>	0.72(0.01)   </td></tr>			
+            <tr><td>o3-mini-medium   </td><td>0.60(0.05)</td><td>	0.62(0.02)</td><td>	0.56(0.04)</td><td>	0.68(0.03)   </td></tr>
+            <tr><td>o3-mini-low    </td><td>0.60(0.05)</td><td>	0.62(0.02)</td><td>	0.56(0.04)</td><td>	0.68(0.03)   </td></tr>
+            <tr><td>GPT-4o     </td><td>0.60(0.02) </td><td>	0.61(0.02)</td><td>	0.60(0.05)</td><td>	0.69(0.04) </td></tr>
+            <tr><td>GPT-4o-mini    </td><td>0.27(0.07)</td><td>	0.46(0.06)</td><td>	0.66(0.02)</td><td>0.67(0.02)  </td></tr>
+            <tr><td>Qwen-Max    </td><td>0.59(0.03)</td><td>	0.60(0.03)</td><td>	0.68(0.04)	</td><td>0.70(0.03) </td></tr>
+            <tr><td>Claude 3.5 Haiku      </td><td>0.62(0.04)</td><td>	0.58(0.03)</td><td>	0.67(0.03)</td><td>	0.70(0.03)</td></tr>
+            <tr><td>DeepSeek-R1-671b   </td><td> 0.61(0.01)</td><td>	0.59(0.01)</td><td>0.69(0.02)</td><td>	0.69(0.01)</td></tr>
+            <tr><td>DeepSeek-R1-70b    </td><td>0.57(0.01)</td><td>	0.55(0.05)	</td><td>0.69(0.02)	</td><td>0.66(0.02)</td></tr>
+            <tr><td>DeepSeek-R1-32b     </td><td>	0.56(0.02)</td><td>	0.53(0.03)	</td><td>0.67(0.02)</td><td>	0.69(0.05)</td></tr>
+            <tr><td>DeepSeek-R1-14b    </td><td>0.52(0.02)	</td><td>0.48(0.02)	</td><td>0.68(0.03)</td><td>0.71(0.03)</td></tr>
+            <tr><td>DeepSeek-V3  </td><td>   0.60(0.03)	</td><td>0.58(0.02)</td><td>	0.74(0.01)	</td><td>0.74(0.02)  </td></tr>
+            <tr><td>DeepSeek-V2.5  </td><td>0.25(0.02)	</td><td>0.47(0.04)</td><td>0.64(0.04)</td><td>	0.60(0.04)	</td></tr>
+            <tr><td>Qwen2.5-72b     </td><td>	0.75(0.01)</td><td>	0.58(0.01)	</td><td>0.67(0.04)</td><td>	0.67(0.03)  </td></tr>
+            <tr><td>Llama3.3-70b      </td><td>0.74(0.03)</td><td>	0.54(0.05)</td><td>	0.85(0.02)	</td><td>0.75(0.05)  </td></tr>
+            <tr><td>Mixtral-8x22b   </td><td>  0.54(0.03)</td><td>	0.54(0.03)	</td><td>0.70(0.06)	</td><td>0.60(0.03)  </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+    <!-- 第三個表格 -->
+    <div class="column">
+      <h4 class="title is-5">Score Efficiency</h4>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th class="has-text-centered">Models</th>
+              <th class="has-text-centered">ReAct</th>
+              <th class="has-text-centered">Reflexion</th>
+              <th class="has-text-centered">DPT-Agent w/o ToM</th>
+              <th class="has-text-centered">DPT-Agent</th>
+            </tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Overall     </td><td>3.57(0.30)</td><td>	3.54(0.33)</td><td>	4.59(0.31)	</td><td>4.69(0.32)  	</td></tr>
+            <tr><td>o3-mini-high </td><td> 0.00(0.00)	</td><td>0.00(0.00)</td><td>	5.66(0.21)	</td><td>5.33(0.18) </td></tr>
+            <tr><td>o3-mini-medium </td><td> 2.67(0.38)	</td><td>3.59(0.39)	</td><td>5.16(0.28)</td><td>5.23(0.24) </td></tr>
+            <tr><td>o3-mini-low </td><td> 3.20(0.34)	</td><td>4.18(0.34)</td><td>	4.28(0.43)	</td><td>4.60(0.35) </td><td></td></tr>
+            <tr><td>GPT-4o   </td><td> 4.26(0.42)	</td><td>3.86(0.34)	</td><td>3.43(0.42)</td><td>	4.46(0.39)</td></tr>
+            <tr><td>GPT-4o-mini   </td><td> 3.95(0.52)	</td><td>4.64(0.66)	</td><td>5.03(0.28)</td><td>	5.33(0.33)  </td></tr>
+            <tr><td>Qwen-Max   </td><td>4.56(0.39)</td><td>	4.03(0.28)	</td><td>4.83(0.45)	</td><td>5.09(0.31)  </td></tr>
+            <tr><td>Claude 3.5 Haiku    </td><td> 4.04(0.30)	</td><td>3.65(0.31)</td><td>	4.67(0.39)</td><td>	4.47(0.34)  </td></tr>
+            <tr><td>DeepSeek-R1-671b  </td><td>4.52(0.25)	</td><td>4.47(0.37)</td><td>	4.90(0.21)	</td><td>5.27(0.19)	 </td></tr>
+            <tr><td>DeepSeek-R1-70b  </td><td>3.66(0.25)</td><td>	2.25(0.27)	</td><td>4.64(0.25)</td><td>	4.92(0.24)</td></tr>
+            <tr><td>DeepSeek-R1-32b  </td><td>3.64(0.29)</td><td>	3.27(0.29)	</td><td>4.31(0.26)</td><td>	4.04(0.38)  </td></tr>
+            <tr><td>DeepSeek-R1-14b  </td><td>3.16(0.22)</td><td>	3.16(0.43)	</td><td>4.33(0.36)	</td><td>4.29(0.38) </td></tr>
+            <tr><td>DeepSeek-V3    </td><td>4.78(0.39)</td><td>	5.03(0.38)	</td><td>6.00(0.18)	</td><td>5.66(0.25) </td></tr>
+            <tr><td>DeepSeek-V2.5  </td><td>	2.29(0.26)	</td><td>3.43(0.29)	</td><td>4.24(0.40)	</td><td>3.61(0.42)	</td></tr>
+            <tr><td>Qwen2.5-72b </td><td> 4.44(0.16)</td><td>	5.11(0.29)	</td><td>3.25(0.27)	</td><td>4.51(0.29) </td></tr>
+            <tr><td>Llama3.3-70b  </td><td> 4.44(0.37)	</td><td>2.01(0.28)	</td><td>4.08(0.19)</td><td>	3.89(0.32)</td></tr>
+            <tr><td>Mixtral-8x22b   </td><td>  3.58(0.30)</td><td>	4.01(0.32)	</td><td>4.63(0.41)</td><td>	4.38(0.43) </td></tr>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
+    </div>
+    <div class="column">
+      <h4 class="title is-5">Latency</h4>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th class="has-text-centered">Models</th>
+              <th class="has-text-centered">ReAct</th>
+              <th class="has-text-centered">Reflexion</th>
+              <th class="has-text-centered">DPT-Agent w/o ToM</th>
+              <th class="has-text-centered">DPT-Agent</th>
+            </tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>o3-mini-high </td><td>39.01(2.82)	</td><td>39.47(2.43)	</td><td>34.77(4.37)</td><td>35.96(4.91)</td></tr>
+            <tr><td>o3-mini-medium  </td><td>28.07(2.42)	</td><td>26.73(3.93)	</td><td>22.24(1.39)</td><td>24.05(2.81)</td></tr>
+            <tr><td>o3-mini-low </td><td>10.78(1.40)	</td><td>10.58(0.80)	</td><td>7.34(0.37)</td><td>7.68(0.38)</td></tr>
+            <tr><td>GPT-4o  </td><td>	6.63(7.53)	</td><td>6.81(0.24)</td><td>	4.92(1.32)	</td><td>4.91(1.41)</td></tr>
+            <tr>
+  <td>GPT-4o-mini</td>
+  <td>2.93(0.77)</td>
+  <td>3.15(1.27)</td>
+  <td>2.09(1.09)</td>
+  <td>2.08(0.58)</td>
+</tr>
+            <tr><td>Qwen-Max    </td><td>8.29(0.14)</td><td>	10.30(0.21)</td><td>	5.90(0.11)</td><td>	5.89(0.10) </td></tr>
+            <tr><td>Claude 3.5 Haiku   </td><td>5.74(0.06)	</td><td>7.47(0.11)</td><td>	5.21(0.05)</td><td>	5.25(0.06)</td></tr>
+            
+            <tr><td>DeepSeek-R1-671b  </td><td>31.31(2.17)	</td><td>41.66(2.45)</td><td>	38.89(3.70)	</td><td>34.63(2.30)</td></tr>
+            <tr><td>DeepSeek-R1-70b  </td><td>7.82(0.17)</td><td>	7.39(0.14)	</td><td>10.30(0.36)</td><td>	10.13(0.34)</td></tr>
+            <tr><td>DeepSeek-R1-32b  </td><td>5.75(0.09)	</td><td>6.77(0.13)</td><td>	5.24(0.08)</td><td>	5.11(0.13) </td></tr>
+            <tr><td>DeepSeek-R1-14b </td><td> 3.06(0.06)	</td><td>3.44(0.09)</td><td>	3.88(0.088)	</td><td>3.57(0.06)</td></tr>
+            <tr><td>DeepSeek-V3    </td><td>   7.54(0.15)</td><td>8.86(0.15)	</td><td>1.92(0.04)	</td><td>2.41(0.10)  </td></tr>
+            <tr><td>DeepSeek-V2.5 </td><td>  4.88(0.07)	</td><td>5.35(0.08)	</td><td>4.06(0.10)	</td><td>4.49(0.07)	</td></tr>
+            <tr><td>Qwen2.5-72b </td><td>	4.34(0.06)	</td><td>4.83(0.11)	</td><td>3.81(0.10)	</td><td>4.62(0.11) </td></tr>
+            <tr><td>Llama3.3-70b  </td><td>    4.53(0.08)</td><td>	5.34(0.11)	</td><td>2.30(0.08)	</td><td>2.90(0.09) </td></tr>
+            <tr><td>Mixtral-8x22b  </td><td>  5.20(0.18)	</td><td>5.19(0.22)	</td><td>4.53(0.14)</td><td>	5.31(0.19)  </td></tr>
+            <tr><td>Overall       	</td><td>10.99(1.14)</td><td>	12.08(0.78)</td><td>9.84(0.84)	</td><td>9.94(0.85)</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
   </div>
 </div>
+
+                                              <!-- Human Exp 標籤頁 -->
+                                              <div id="human-exp-tab" class="tab-pane is-hidden">
+                                                <div class="columns is-centered is-desktop">
+                                                  <div class="column">
+                                                    <div class="content">
+                                                      <p class="has-text-justified">
+                                                        After data validation, we have 68 valid data points
+in total: 36 of Map 1 and 32 of Map 2.  DPT-Agent achieves the highest scores in
+both Map 1 and Map 2 when collaborating with
+humans. DPT-Agent w/o ToM also outperforms
+ReAct and Reflexion, confirming the effectiveness
+of asynchronous reflection. Moreover, the ToM
+module also brought a significant score improvement in collaborating with humans, confirming that incorporating human belief reasoning into System 2 can foster better collaboration. Regarding human perception, DPT-Agent ranks highest
+in Map 1, with the most participants recognizing
+its collaborative abilities. Interestingly, in Map 2,
+DPT-Agent w/o ToM surpasses DPT-Agent in both
+cooperation and preference ranking with a higher
+agent contribution rate, which may refer to the hu-
+man preference for partners who work more.
+                                                      </p>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                               
+                                                        
+                                              
+  <div class="columns is-centered is-desktop">
+    <!-- 第一個表格 -->
+    <div class="column">
+      <h4 class="title is-5">Map 1 - New Counter Circuit</h4>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th class="has-text-centered">Agent Frameworks</th>
+              <th class="has-text-centered">Score</th>
+              <th class="has-text-centered">Agent Contribution Rate</th>
+              <th class="has-text-centered">Borda Count of Cooperation</th>
+              <th class="has-text-centered">Borda Count of Preference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ReAct</td>
+              <td>99.03(9.86)</td>
+              <td>0.51(0.03)</td>
+              <td>88</td>
+              <td>88</td>
+            </tr>
+            <tr>
+              <td>Reflexion</td>
+              <td>97.78(7.23)</td>
+              <td>0.53(0.03)</td>
+              <td>79</td>
+              <td>80</td>
+            </tr>
+            <tr>
+              <td>DPT-Agent w/o ToM</td>
+              <td> 103.19(7.06)</td>
+              <td> 0.62(0.02)</td>
+              <td>86</td>
+              <td>91</td>
+            </tr>
+            <tr>
+              <td>DPT-Agent</td>
+              <td> 111.53(5.42)</td>
+              <td> 0.62(0.02)</td>
+              <td>107</td>
+              <td>101</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 第二個表格 -->
+    <div class="column">
+      <h4 class="title is-5">Map 2 - New Asymmetric Advantages</h4>
+      <div class="table-container">
+        <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th class="has-text-centered">Agent Frameworks</th>
+              <th class="has-text-centered">Score</th>
+              <th class="has-text-centered">Agent Contribution Rate</th>
+              <th class="has-text-centered">Borda Count of Cooperation</th>
+              <th class="has-text-centered">Borda Count of Preference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ReAct</td>
+              <td>115.00(9.28)</td>
+              <td>0.49(0.04)</td>
+              <td>65</td>
+              <td>63</td>
+            </tr>
+            <tr>
+              <td>Reflexion</td>
+              <td>119.67(10.54)</td>
+              <td>0.51(0.03)</td>
+              <td>78</td>
+              <td>73</td>
+            </tr>
+            <tr>
+              <td>DPT-Agent w/o ToM</td>
+              <td>152.03(8.13)</td>
+              <td> 0.62(0.02)</td>
+              <td>94</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td>DPT-Agent</td>
+              <td> 160.63(7.97)</td>
+              <td>0.59(0.03)</td>
+              <td>83</td>
+              <td>89</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
-</section>
-<!-- End image carousel -->
 
+                                              <!-- Human Exp 標籤頁 -->
+                                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </section>
 
+                                    <!-- 添加標籤頁切換的 JavaScript -->
+                                    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 獲取所有標籤頁和內容
+    const tabs = document.querySelectorAll('#exp-tabs li');
+    const tabPanes = document.querySelectorAll('.tab-content .tab-pane');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 重置所有標籤頁和內容的狀態
+        tabs.forEach(item => item.classList.remove('is-active'));
+        
+        // 修正這裡 - classList.add() 不能鏈式調用
+        tabPanes.forEach(pane => {
+          pane.classList.add('is-hidden');
+          pane.classList.remove('is-active');
+        });
+        
+        // 激活當前點擊的標籤頁
+        tab.classList.add('is-active');
+        
+        // 顯示對應的內容
+        const targetId = tab.getAttribute('data-target');
+        const targetPane = document.getElementById(targetId);
+        targetPane.classList.remove('is-hidden');
+        targetPane.classList.add('is-active');
+      });
+    });
+  });
+</script>
 
-
-<!-- Youtube video -->
-<!-- <section class="hero is-small is-light">
+                                    <!-- Youtube video -->
+                                    <!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container"> -->
-      <!-- Paper video. -->
-      <!-- <h2 class="title is-3">Video Presentation</h2>
+                                    <!-- Paper video. -->
+                                    <!-- <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
           <div class="publication-video"> -->
-            <!-- Youtube embed code here -->
-            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    <!-- Youtube embed code here -->
+                                    <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div> -->
-<!-- </section> -->
-<!-- End youtube video -->
+                                    <!-- </section> -->
+                                    <!-- End youtube video -->
 
-
-<!-- Video carousel -->
-<!-- <section class="hero is-small">
+                                    <!-- Video carousel -->
+                                    <!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
-            <!-- Your video file here -->
-            <!-- <source src="static/videos/carousel1.mp4"
+                                    <!-- Your video file here -->
+                                    <!-- <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
-            <!-- Your video file here -->
-            <!-- <source src="static/videos/carousel2.mp4"
+                                    <!-- Your video file here -->
+                                    <!-- <source src="static/videos/carousel2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
-            <!-- Your video file here -->
-            <!-- <source src="static/videos/carousel3.mp4"
+                                    <!-- Your video file here -->
+                                    <!-- <source src="static/videos/carousel3.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -289,15 +982,10 @@
     </div>
   </div>
 </section> -->
-<!-- End video carousel -->
+                                    <!-- End video carousel -->
 
-
-
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
+                                    <!-- Paper poster -->
+                                    <!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -308,14 +996,14 @@
       </div>
     </div>
   </section> -->
-<!--End paper poster -->
+                                    <!--End paper poster -->
 
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{zhang2025ldpt,
+                                    <!--BibTex citation -->
+                                    <section class="section" id="BibTeX">
+                                      <div
+                                        class="container is-max-desktop content">
+                                        <h2 class="title">BibTeX</h2>
+                                        <pre><code>@article{zhang2025ldpt,
         title={Leveraging Dual Process Theory in Language Agent Framework for Real-time Simultaneous Human-AI Collaboration}, 
         author={Shao Zhang and Xihuai Wang and Wenhao Zhang and Chaoran Li and Junru Song and Tingyu Li and Lin Qiu and Xuezhi Cao and Xunliang Cai and Wen Yao and Weinan Zhang and Xinbing Wang and Ying Wen},
         year={2025},
@@ -324,34 +1012,51 @@
         primaryClass={cs.AI},
         url={https://arxiv.org/abs/2502.11882}, 
   }</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
+                                      </div>
+                                    </section>
+                                    <!--End BibTex citation -->
 
+                                    <footer class="footer">
+                                      <div class="container">
+                                        <div class="columns is-centered">
+                                          <div class="column is-8">
+                                            <div class="content">
 
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+                                              <p>
+                                                This page was built using the <a
+                                                  href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                                  target="_blank">Academic
+                                                  Project Page Template</a>
+                                                which
+                                                was adopted from the <a
+                                                  href="https://nerfies.github.io"
+                                                  target="_blank">Nerfies</a>
+                                                project page.
+                                                You are free to borrow the
+                                                source code of this website,
+                                                we
+                                                just ask that you link back to
+                                                this page in the footer.
+                                                <br> This website is licensed
+                                                under a <a rel="license"
+                                                  href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                                  target="_blank">Creative
+                                                  Commons Attribution-ShareAlike
+                                                  4.0 International
+                                                  License</a>.
+                                              </p>
 
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </footer>
 
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+                                    <!-- Statcounter tracking code -->
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+                                    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
-    <!-- End of Statcounter Code -->
+                                    <!-- End of Statcounter Code -->
 
-  </body>
-  </html>
+                                  </body>
+                                </html>
