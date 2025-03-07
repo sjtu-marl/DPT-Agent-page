@@ -99,6 +99,44 @@
         margin-top: 0;
         padding: 0 15px;  /* 左右添加一些內邊距 */
       }
+
+      /* 確保兩個 GIF 高度一致 */
+      .gif-container {
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #f5f5f5;
+      }
+      
+      .gif-container img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+      
+      /* 讓卡片有相同的高度 */
+      .columns .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .card-image {
+        flex: 1;
+      }
+
+        /* 讓 GIF 卡片中的標題和描述文字左對齊 */
+      .gif-container + .card-content .title,
+      .gif-container + .card-content .subtitle {
+      text-align: left;
+      }
+  
+  /* 或者直接針對卡片內容區域設置左對齊 */
+  .card .card-content {
+    text-align: left;
+  }
     </style>
   </head>
   <body>
@@ -123,7 +161,7 @@
                   Wenhao Zhang<sup>1</sup>,
                 </span>
                 <span class="author-block">
-                  Chaoran Li<sup></sup>,
+                  Chaoran Li<sup>1</sup>,
                 </span>
                 <span class="author-block">
                   Junru Song<sup>1</sup>,
@@ -150,7 +188,7 @@
                 <span class="author-block">
                   Xinbing Wang<sup>1</sup>,
                 </span>
-                <span class="author-block">
+                <span class="author-block"></span>
                   <a href="https://yingwen.io" target="_blank">Ying
                     Wen</a><sup>1#</sup>
                 </span>
@@ -338,6 +376,44 @@ output, thereby guaranteeing real-time responsiveness in simultaneous collaborat
       </div>
     </section>
     <!-- End image carousel -->
+
+    <!-- GIF 展示區塊 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Visualization</h2>
+    <div class="columns is-centered">
+      <!-- 第一個 GIF -->
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image gif-container">
+              <img src="static/images/1.gif" alt="DPT-Agent Demo 1">
+            </figure>
+          </div>
+          <div class="card-content">
+            <p class="title is-5">Map 1</p>
+            <p class="subtitle is-6">DPT-Agent collaborating with human in real-time tasks through division of labor. </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 第二個 GIF -->
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image gif-container">
+              <img src="static/images/2.gif" alt="DPT-Agent Demo 2">
+            </figure>
+          </div>
+          <div class="card-content">
+            <p class="title is-5">Map 2</p>
+            <p class="subtitle is-6">DPT-Agent collaborating with human by using the central counter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- 實驗結果區塊 -->
     <section class="section hero">
@@ -590,26 +666,26 @@ output, thereby guaranteeing real-time responsiveness in simultaneous collaborat
 
                                               <!-- Exp 2 標籤頁 -->
                                               <div id="exp2-tab" class="tab-pane is-hidden">
-                                                <!-- 將說明文字放入與表格相同的列結構中 -->
-                                                <div class="columns is-centered is-desktop">
-                                                  <div class="column">
-                                                    <div class="content">
-                                                      <p class="has-text-justified">
-                                                        DPT-Agent achieved the best performance across the majority of models, especially on the widely recognized general-purpose
-                                                        SOTA models like GPT-4o. This phenomenon aligns with the conclusions from the experiments
-                                                        in single-agent settings, where larger models can overcome the latency limitations and achieve better
-                                                        performance with the help of DPT-Agent. Such performance improvements are more noticeable in
-                                                        the reasoning model series of GPT o3-mini and DeepSeek-R1. DPT-Agent framework can help reasoning models, which require long periods of
-                                                        thinking, overcome the latency and effectively transition from thinking to action. Additionally, when
-                                                        facing rule-based agents that can only perform a single task, DPT-Agent can maintain a high contribution rate. For some models like Llama3.3-70b, DPT-Agent w/o ToM outperforms the complete DPT-Agent, which may be closely related to the model's ToM capabilities.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-                                                </div>
+  <!-- 說明文字保持不變 -->
   <div class="columns is-centered is-desktop">
-  
-    <!-- 第一個表格 -->
     <div class="column">
+      <div class="content">
+        <p class="has-text-justified">
+          DPT-Agent achieved the best performance across the majority of models, especially on the widely recognized general-purpose
+          SOTA models like GPT-4o. This phenomenon aligns with the conclusions from the experiments
+          in single-agent settings, where larger models can overcome the latency limitations and achieve better
+          performance with the help of DPT-Agent. Such performance improvements are more noticeable in
+          the reasoning model series of GPT o3-mini and DeepSeek-R1. DPT-Agent framework can help reasoning models, which require long periods of
+          thinking, overcome the latency and effectively transition from thinking to action. Additionally, when
+          facing rule-based agents that can only perform a single task, DPT-Agent can maintain a high contribution rate. For some models like Llama3.3-70b, DPT-Agent w/o ToM outperforms the complete DPT-Agent, which may be closely related to the model's ToM capabilities.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 第一個表格 - Score -->
+  <div class="columns is-centered is-desktop">
+    <div class="column is-four-fifths">
       <h4 class="title is-5">Score</h4>
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
@@ -644,47 +720,53 @@ output, thereby guaranteeing real-time responsiveness in simultaneous collaborat
         </table>
       </div>
     </div>
-
-    <!-- 第二個表格 -->
-    <div class="column">
+  </div>
+  
+  <!-- 第二個表格 - Agent Contribution Rate -->
+  <div class="columns is-centered is-desktop">
+    <div class="column is-four-fifths">
       <h4 class="title is-5">Agent Contribution Rate</h4>
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
-          <thead>
-            <tr>
-              <th class="has-text-centered">Models</th>
-              <th class="has-text-centered">ReAct</th>
-              <th class="has-text-centered">Reflexion</th>
-              <th class="has-text-centered">DPT-Agent w/o ToM</th>
-              <th class="has-text-centered">DPT-Agent</th>
-            </tr>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Overall     	</td><td>0.52(0.03)</td><td>	0.52(0.03)</td><td>0.68(0.03)</td><td>	0.68(0.03)</td></tr>	
-            <tr><td>o3-mini-high    </td><td>0.00(0.00)</td><td>	0.00(0.00)</td><td>	0.68(0.02)</td><td>	0.72(0.01)   </td></tr>			
-            <tr><td>o3-mini-medium   </td><td>0.60(0.05)</td><td>	0.62(0.02)</td><td>	0.56(0.04)</td><td>	0.68(0.03)   </td></tr>
-            <tr><td>o3-mini-low    </td><td>0.60(0.05)</td><td>	0.62(0.02)</td><td>	0.56(0.04)</td><td>	0.68(0.03)   </td></tr>
-            <tr><td>GPT-4o     </td><td>0.60(0.02) </td><td>	0.61(0.02)</td><td>	0.60(0.05)</td><td>	0.69(0.04) </td></tr>
-            <tr><td>GPT-4o-mini    </td><td>0.27(0.07)</td><td>	0.46(0.06)</td><td>	0.66(0.02)</td><td>0.67(0.02)  </td></tr>
-            <tr><td>Qwen-Max    </td><td>0.59(0.03)</td><td>	0.60(0.03)</td><td>	0.68(0.04)	</td><td>0.70(0.03) </td></tr>
-            <tr><td>Claude 3.5 Haiku      </td><td>0.62(0.04)</td><td>	0.58(0.03)</td><td>	0.67(0.03)</td><td>	0.70(0.03)</td></tr>
-            <tr><td>DeepSeek-R1-671b   </td><td> 0.61(0.01)</td><td>	0.59(0.01)</td><td>0.69(0.02)</td><td>	0.69(0.01)</td></tr>
-            <tr><td>DeepSeek-R1-70b    </td><td>0.57(0.01)</td><td>	0.55(0.05)	</td><td>0.69(0.02)	</td><td>0.66(0.02)</td></tr>
-            <tr><td>DeepSeek-R1-32b     </td><td>	0.56(0.02)</td><td>	0.53(0.03)	</td><td>0.67(0.02)</td><td>	0.69(0.05)</td></tr>
-            <tr><td>DeepSeek-R1-14b    </td><td>0.52(0.02)	</td><td>0.48(0.02)	</td><td>0.68(0.03)</td><td>0.71(0.03)</td></tr>
-            <tr><td>DeepSeek-V3  </td><td>   0.60(0.03)	</td><td>0.58(0.02)</td><td>	0.74(0.01)	</td><td>0.74(0.02)  </td></tr>
-            <tr><td>DeepSeek-V2.5  </td><td>0.25(0.02)	</td><td>0.47(0.04)</td><td>0.64(0.04)</td><td>	0.60(0.04)	</td></tr>
-            <tr><td>Qwen2.5-72b     </td><td>	0.75(0.01)</td><td>	0.58(0.01)	</td><td>0.67(0.04)</td><td>	0.67(0.03)  </td></tr>
-            <tr><td>Llama3.3-70b      </td><td>0.74(0.03)</td><td>	0.54(0.05)</td><td>	0.85(0.02)	</td><td>0.75(0.05)  </td></tr>
-            <tr><td>Mixtral-8x22b   </td><td>  0.54(0.03)</td><td>	0.54(0.03)	</td><td>0.70(0.06)	</td><td>0.60(0.03)  </td></tr>
-          </tbody>
+          <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
+            <thead>
+              <tr>
+                <th class="has-text-centered">Models</th>
+                <th class="has-text-centered">ReAct</th>
+                <th class="has-text-centered">Reflexion</th>
+                <th class="has-text-centered">DPT-Agent w/o ToM</th>
+                <th class="has-text-centered">DPT-Agent</th>
+              </tr>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Overall     	</td><td>0.52(0.03)</td><td>	0.52(0.03)</td><td>0.68(0.03)</td><td>	0.68(0.03)</td></tr>	
+              <tr><td>o3-mini-high    </td><td>0.00(0.00)</td><td>	0.00(0.00)</td><td>	0.68(0.02)</td><td>	0.72(0.01)   </td></tr>			
+              <tr><td>o3-mini-medium   </td><td>0.60(0.05)</td><td>	0.62(0.02)</td><td>	0.56(0.04)</td><td>	0.68(0.03)   </td></tr>
+              <tr><td>o3-mini-low    </td><td>0.60(0.05)</td><td>	0.62(0.02)</td><td>	0.56(0.04)</td><td>	0.68(0.03)   </td></tr>
+              <tr><td>GPT-4o     </td><td>0.60(0.02) </td><td>	0.61(0.02)</td><td>	0.60(0.05)</td><td>	0.69(0.04) </td></tr>
+              <tr><td>GPT-4o-mini    </td><td>0.27(0.07)</td><td>	0.46(0.06)</td><td>	0.66(0.02)</td><td>0.67(0.02)  </td></tr>
+              <tr><td>Qwen-Max    </td><td>0.59(0.03)</td><td>	0.60(0.03)</td><td>	0.68(0.04)	</td><td>0.70(0.03) </td></tr>
+              <tr><td>Claude 3.5 Haiku      </td><td>0.62(0.04)</td><td>	0.58(0.03)</td><td>	0.67(0.03)</td><td>	0.70(0.03)</td></tr>
+              <tr><td>DeepSeek-R1-671b   </td><td> 0.61(0.01)</td><td>	0.59(0.01)</td><td>0.69(0.02)</td><td>	0.69(0.01)</td></tr>
+              <tr><td>DeepSeek-R1-70b    </td><td>0.57(0.01)</td><td>	0.55(0.05)	</td><td>0.69(0.02)	</td><td>0.66(0.02)</td></tr>
+              <tr><td>DeepSeek-R1-32b     </td><td>	0.56(0.02)</td><td>	0.53(0.03)	</td><td>0.67(0.02)</td><td>	0.69(0.05)</td></tr>
+              <tr><td>DeepSeek-R1-14b    </td><td>0.52(0.02)	</td><td>0.48(0.02)	</td><td>0.68(0.03)</td><td>0.71(0.03)</td></tr>
+              <tr><td>DeepSeek-V3  </td><td>   0.60(0.03)	</td><td>0.58(0.02)</td><td>	0.74(0.01)	</td><td>0.74(0.02)  </td></tr>
+              <tr><td>DeepSeek-V2.5  </td><td>0.25(0.02)	</td><td>0.47(0.04)</td><td>0.64(0.04)</td><td>	0.60(0.04)	</td></tr>
+              <tr><td>Qwen2.5-72b     </td><td>	0.75(0.01)</td><td>	0.58(0.01)	</td><td>0.67(0.04)</td><td>	0.67(0.03)  </td></tr>
+              <tr><td>Llama3.3-70b      </td><td>0.74(0.03)</td><td>	0.54(0.05)</td><td>	0.85(0.02)	</td><td>0.75(0.05)  </td></tr>
+              <tr><td>Mixtral-8x22b   </td><td>  0.54(0.03)</td><td>	0.54(0.03)	</td><td>0.70(0.06)	</td><td>0.60(0.03)  </td></tr>
+            </tbody>
+          </table>
         </table>
       </div>
     </div>
-
-    <!-- 第三個表格 -->
-    <div class="column">
+  </div>
+  
+  <!-- 第三個表格 - Score Efficiency -->
+  <div class="columns is-centered is-desktop">
+    <div class="column is-four-fifths">
       <h4 class="title is-5">Score Efficiency</h4>
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
@@ -721,7 +803,11 @@ output, thereby guaranteeing real-time responsiveness in simultaneous collaborat
         </table>
       </div>
     </div>
-    <div class="column">
+  </div>
+  
+  <!-- 第四個表格 - Latency -->
+  <div class="columns is-centered is-desktop">
+    <div class="column is-four-fifths">
       <h4 class="title is-5">Latency</h4>
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
@@ -768,12 +854,13 @@ output, thereby guaranteeing real-time responsiveness in simultaneous collaborat
 </div>
 
                                               <!-- Human Exp 標籤頁 -->
-                                              <div id="human-exp-tab" class="tab-pane is-hidden">
-                                                <div class="columns is-centered is-desktop">
-                                                  <div class="column">
-                                                    <div class="content">
-                                                      <p class="has-text-justified">
-                                                        After data validation, we have 68 valid data points
+<div id="human-exp-tab" class="tab-pane is-hidden">
+  <!-- 說明文字保持不變 -->
+  <div class="columns is-centered is-desktop">
+    <div class="column">
+      <div class="content">
+        <p class="has-text-justified">
+          After data validation, we have 68 valid data points
 in total: 36 of Map 1 and 32 of Map 2.  DPT-Agent achieves the highest scores in
 both Map 1 and Map 2 when collaborating with
 humans. DPT-Agent w/o ToM also outperforms
@@ -786,16 +873,14 @@ DPT-Agent w/o ToM surpasses DPT-Agent in both
 cooperation and preference ranking with a higher
 agent contribution rate, which may refer to the hu-
 man preference for partners who work more.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                               
-                                                        
-                                              
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 第一個表格 - Map 1 -->
   <div class="columns is-centered is-desktop">
-    <!-- 第一個表格 -->
-    <div class="column">
+    <div class="column is-four-fifths">
       <h4 class="title is-5">Map 1 - New Counter Circuit</h4>
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
@@ -825,15 +910,15 @@ man preference for partners who work more.
             </tr>
             <tr>
               <td>DPT-Agent w/o ToM</td>
-              <td> 103.19(7.06)</td>
-              <td> 0.62(0.02)</td>
+              <td>103.19(7.06)</td>
+              <td>0.62(0.02)</td>
               <td>86</td>
               <td>91</td>
             </tr>
             <tr>
               <td>DPT-Agent</td>
-              <td> 111.53(5.42)</td>
-              <td> 0.62(0.02)</td>
+              <td>111.53(5.42)</td>
+              <td>0.62(0.02)</td>
               <td>107</td>
               <td>101</td>
             </tr>
@@ -841,9 +926,11 @@ man preference for partners who work more.
         </table>
       </div>
     </div>
-
-    <!-- 第二個表格 -->
-    <div class="column">
+  </div>
+  
+  <!-- 第二個表格 - Map 2 -->
+  <div class="columns is-centered is-desktop">
+    <div class="column is-four-fifths">
       <h4 class="title is-5">Map 2 - New Asymmetric Advantages</h4>
       <div class="table-container">
         <table class="table is-striped is-hoverable is-fullwidth has-text-centered">
@@ -874,13 +961,13 @@ man preference for partners who work more.
             <tr>
               <td>DPT-Agent w/o ToM</td>
               <td>152.03(8.13)</td>
-              <td> 0.62(0.02)</td>
+              <td>0.62(0.02)</td>
               <td>94</td>
               <td>95</td>
             </tr>
             <tr>
               <td>DPT-Agent</td>
-              <td> 160.63(7.97)</td>
+              <td>160.63(7.97)</td>
               <td>0.59(0.03)</td>
               <td>83</td>
               <td>89</td>
@@ -892,8 +979,6 @@ man preference for partners who work more.
   </div>
 </div>
 
-                                              <!-- Human Exp 標籤頁 -->
-                                              
                                             </div>
                                           </div>
                                         </div>
